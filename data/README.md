@@ -12,6 +12,6 @@ Documente abaixo como obter os dados brutos, para que qualquer pessoa consiga re
 
 ## Como obter
 
-1. Baixe em: <!-- PREENCHER: URL -->
-2. Salve como: `data/raw/<!-- PREENCHER: nome do arquivo -->`
-3. Checksum (opcional, recomendado): `shasum -a 256 data/raw/<arquivo>`
+1. Baixe em: <!-- https://www.kaggle.com/datasets/yasserh/wine-quality-dataset?resource=download-->
+2. Salve como: `data/raw/<!-- WineQT -->`
+
