@@ -10,19 +10,19 @@
 
 | Campo | Valor |
 |---|---|
-| Turma | <!-- PREENCHER: ex. 12DTAT --> |
-| Grupo | <!-- PREENCHER: ex. Grupo 07 --> |
+| Turma | 14DTAT |
+| Grupo | Grupo 18 |
 | Data de entrega | <!-- PREENCHER: DD/MM/AAAA --> |
 
 ### Integrantes
 
 | Nome completo | RM | E-mail |
 |---|---|---|
-| <!-- PREENCHER --> | RM000000 | |
-| | | |
-| | | |
-| | | |
-| | | |
+| Elaine Hernandes| RM 375521 | |
+| Isabela Bersan Mariano Pádua| RM 374811 | bersanisabela@gmail.com|
+| Laura Garcias Barreto Soares dos Santos| RM  | |
+| Lidiany Christiany da Silva | RM 374699 | |
+
 
 ---
 
@@ -32,7 +32,7 @@ Estes três links são **obrigatórios** e devem ser idênticos aos do PDF de su
 
 | Item | Link |
 |---|---|
-| Repositório | <!-- PREENCHER: URL pública do GitHub --> |
+| Repositório | [https://github.com/IsabelaBersan/tech-challenge-fase2.git](https://github.com/IsabelaBersan/tech-challenge-fase2.git) |
 | Vídeo executivo (≤ 5 min) | <!-- PREENCHER: YouTube não listado / Drive com acesso liberado --> |
 | Apresentação | <!-- PREENCHER: link do arquivo em `docs/` ou Drive --> |
 
