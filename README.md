@@ -20,7 +20,7 @@
 |---|---|---|
 | Elaine Hernandes| RM 375521 | elainehernandes06@gmail.com |
 | Isabela Bersan Mariano Pádua| RM 374811 | bersanisabela@gmail.com|
-| Laura Garcias Barreto Soares dos Santos| RM  | barretolaura775@gmail.com|
+| Laura Garcias Barreto Soares dos Santos| RM 373850 | barretolaura775@gmail.com|
 | Lidiany Christiany da Silva | RM 374699 | lidiany_c@yahoo.com.br|
 
 
