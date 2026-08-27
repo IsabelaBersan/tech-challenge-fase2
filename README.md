@@ -33,7 +33,7 @@ Estes três links são **obrigatórios** e devem ser idênticos aos do PDF de su
 | Item | Link |
 |---|---|
 | Repositório | [https://github.com/IsabelaBersan/tech-challenge-fase2.git](https://github.com/IsabelaBersan/tech-challenge-fase2.git) |
-| Vídeo executivo (≤ 5 min) | <!-- PREENCHER: YouTube não listado / Drive com acesso liberado --> |
+| Vídeo executivo (≤ 5 min) | (https://youtu.be/bOhjdaFd4ZU) |
 | Apresentação | <!-- PREENCHER: link do arquivo em `docs/` ou Drive --> |
 
 > ⚠️ Repositório privado ou inacessível **zera** toda a Dimensão 1 da rúbrica.
