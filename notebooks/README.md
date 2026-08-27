@@ -5,7 +5,7 @@ Ordem numerada obrigatória. Cada notebook deve rodar de cima para baixo em ambi
 
 | Arquivo | Escopo | Rúbrica |
 |---|---|---|
-| `0_códigocompleto.ipynb` | código completo | 
+| `0_codigocompleto.ipynb` | código completo | 
 | `01_eda.ipynb` | distribuições, correlações, outliers, balanceamento | Dim. 3 · 20 pts |
 | `02_preprocessamento.ipynb` | nulos, definição do alvo, normalização, features | Dim. 4 · 15 pts |
 | `03_modelagem.ipynb` | split/CV, treino de ≥ 2 modelos, comparação | Dim. 5 · 20 pts |
