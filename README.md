@@ -12,7 +12,7 @@
 |---|---|
 | Turma | 14DTAT |
 | Grupo | Grupo 18 |
-| Data de entrega | <!-- PREENCHER: DD/MM/AAAA --> |
+| Data de entrega |  01/09/2026  |
 
 ### Integrantes
 
@@ -32,8 +32,8 @@ Estes três links são **obrigatórios** e devem ser idênticos aos do PDF de su
 
 | Item | Link |
 |---|---|
-| Repositório | [https://github.com/IsabelaBersan/tech-challenge-fase2.git](https://github.com/IsabelaBersan/tech-challenge-fase2.git) |
-| Vídeo executivo (≤ 5 min) | (https://youtu.be/bOhjdaFd4ZU) |
+| Repositório | [github.com/IsabelaBersan/tech-challenge-fase2](https://github.com/IsabelaBersan/tech-challenge-fase2) |
+| Vídeo executivo (≤ 5 min) | [Assistir no YouTube](https://youtu.be/bOhjdaFd4ZU) |
 | Apresentação | <!-- PREENCHER: link do arquivo em `docs/` ou Drive --> |
 
 > ⚠️ Repositório privado ou inacessível **zera** toda a Dimensão 1 da rúbrica.
