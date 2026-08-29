@@ -1,147 +1,275 @@
-# Tech Challenge — Fase 2 | POSTECH Data Analytics
+# 🍷 Wine Quality Classification
 
-> **INSTRUÇÕES:** este README é um template. Substitua **todos** os blocos marcados com
-> `<!-- PREENCHER -->` e apague as linhas de instrução antes de submeter.
-> O README vale **3 pontos** na Dimensão 1 da rúbrica.
+## Classificação da Qualidade de Vinhos com Machine Learning
+
+Projeto desenvolvido para o **Tech Challenge — Fase 2 da Pós-Graduação em Data Analytics da FIAP**, com o objetivo de analisar características físico-químicas de vinhos tintos e desenvolver modelos de Machine Learning capazes de classificar sua qualidade.
 
 ---
 
-## 1. Identificação
+## 📊 Sobre o Projeto
 
-| Campo | Valor |
+A qualidade de um vinho está relacionada a diferentes características físico-químicas, como acidez, açúcar residual, cloretos, dióxido de enxofre, densidade, pH, sulfatos e teor alcoólico.
+
+Neste projeto, foi utilizado o **Wine Quality Dataset**, contendo informações físico-químicas de amostras de vinhos tintos e uma avaliação de qualidade atribuída por avaliadores.
+
+O objetivo foi investigar quais características apresentam maior relação com a qualidade e verificar se modelos de Machine Learning conseguem classificar os vinhos em duas categorias:
+
+- **Regular/Ruim:** qualidade < 6
+- **Bom:** qualidade ≥ 6
+
+A análise foi desenvolvida em Python, contemplando Análise Exploratória de Dados (EDA), pré-processamento, modelagem e avaliação dos resultados.
+
+---
+
+## 🎯 Objetivos
+
+### Objetivo geral
+
+Analisar as características físico-químicas de vinhos tintos e desenvolver modelos de Machine Learning capazes de classificar as amostras de acordo com sua qualidade.
+
+### Objetivos específicos
+
+- Explorar e compreender as características presentes no conjunto de dados;
+- Verificar valores ausentes, duplicidades e possíveis outliers;
+- Analisar a distribuição da variável `quality`;
+- Investigar a relação entre as características físico-químicas e a qualidade;
+- Transformar a variável `quality` em uma classificação binária;
+- Realizar o pré-processamento dos dados;
+- Comparar os modelos KNN e SVM;
+- Avaliar os modelos utilizando métricas de desempenho;
+- Identificar as variáveis com maior importância para a previsão da qualidade;
+- Analisar possíveis aplicações dos resultados no controle de qualidade dos vinhos.
+
+---
+
+## 🍷 Base de Dados
+
+O projeto utiliza o **Wine Quality Dataset**, disponibilizado no Kaggle.
+
+A base analisada possui:
+
+- **1.143 registros**
+- **13 colunas**
+- 11 características físico-químicas
+- 1 variável de qualidade (`quality`)
+- 1 identificador (`Id`)
+
+Entre as características analisadas estão:
+
+- `fixed acidity`
+- `volatile acidity`
+- `citric acid`
+- `residual sugar`
+- `chlorides`
+- `free sulfur dioxide`
+- `total sulfur dioxide`
+- `density`
+- `pH`
+- `sulphates`
+- `alcohol`
+
+A variável original `quality` possui notas entre 3 e 8 no conjunto analisado. :contentReference[oaicite:2]{index=2}
+
+### Fonte
+
+Wine Quality Dataset — Kaggle:
+
+https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
+
+---
+
+## 🔎 Análise Exploratória de Dados
+
+A Análise Exploratória de Dados foi realizada com o objetivo de compreender a distribuição das variáveis e identificar possíveis relações entre as características físico-químicas e a qualidade dos vinhos.
+
+Foram realizadas análises como:
+
+- Distribuição da variável `quality`;
+- Análise da distribuição das classes;
+- Matriz de correlação de Pearson;
+- Identificação de possíveis outliers;
+- Boxplots das principais características por classe de qualidade.
+
+A análise de correlação indicou que:
+
+- `alcohol` apresentou a maior correlação positiva com a qualidade, aproximadamente **0,48**;
+- `volatile acidity` apresentou uma das principais correlações negativas, aproximadamente **-0,41**.
+
+Esses resultados foram posteriormente comparados com a importância das variáveis obtida através do Random Forest. :contentReference[oaicite:3]{index=3}
+
+---
+
+## 🧪 Pré-processamento
+
+Antes da aplicação dos modelos, foram realizadas as seguintes etapas:
+
+### Remoção da variável `Id`
+
+A coluna `Id` foi removida por representar apenas um identificador das amostras, sem relação direta com as características físico-químicas. :contentReference[oaicite:4]{index=4}
+
+### Criação da variável-alvo
+
+A variável `quality` foi transformada em uma variável binária denominada `quality_binary`.
+
+| Qualidade | Classificação |
 |---|---|
-| Turma | 14DTAT |
-| Grupo | Grupo 18 |
-| Data de entrega |  01/09/2026  |
+| < 6 | Regular/Ruim |
+| ≥ 6 | Bom |
 
-### Integrantes
+:contentReference[oaicite:5]{index=5}
 
-| Nome completo | RM | E-mail |
-|---|---|---|
-| Elaine Hernandes| RM 375521 | elainehernandes06@gmail.com |
-| Isabela Bersan Mariano Pádua| RM 374811 | bersanisabela@gmail.com|
-| Laura Garcias Barreto Soares dos Santos| RM 373850 | barretolaura775@gmail.com|
-| Lidiany Christiany da Silva | RM 374699 | lidiany_c@yahoo.com.br|
+### Separação treino e teste
 
+Os dados foram divididos em:
 
----
+- **80% para treinamento**
+- **20% para teste**
 
-## 2. Links da entrega
+Foi utilizado `stratify` para preservar uma proporção semelhante das classes nos conjuntos de treinamento e teste. :contentReference[oaicite:6]{index=6}
 
-Estes três links são **obrigatórios** e devem ser idênticos aos do PDF de submissão.
+### Padronização
 
-| Item | Link |
-|---|---|
-| Repositório | [github.com/IsabelaBersan/tech-challenge-fase2](https://github.com/IsabelaBersan/tech-challenge-fase2) |
-| Vídeo executivo (≤ 5 min) | [Assistir no YouTube](https://www.youtube.com/watch?v=enl4X5xFrsE) |
-| Apresentação | <!-- PREENCHER: link do arquivo em `docs/` ou Drive --> |
+As variáveis foram padronizadas antes da aplicação dos modelos.
 
-> ⚠️ Repositório privado ou inacessível **zera** toda a Dimensão 1 da rúbrica.
-> Confira o acesso em uma janela anônima antes de enviar.
+Essa etapa foi especialmente importante para KNN e SVM, pois ambos podem ser influenciados pela escala das variáveis. A transformação foi ajustada utilizando apenas os dados de treinamento e posteriormente aplicada ao conjunto de teste. :contentReference[oaicite:7]{index=7}
 
 ---
 
-## 3. O problema
+## 🤖 Modelagem
 
-<!-- PREENCHER: contexto de negócio e a motivação para o uso de Machine Learning. -->
+Foram utilizados dois algoritmos de classificação:
 
-### Variável alvo
+- **K-Nearest Neighbors (KNN)**
+- **Support Vector Machine (SVM)**
 
-<!-- PREENCHER: qual é a variável alvo, como foi definida e — se houve binarização —
-     qual limiar foi adotado e por quê. Justifique com base na distribuição das classes. -->
+Os dois modelos foram avaliados em dois cenários:
 
-### Dataset
+1. Utilizando as **11 variáveis físico-químicas**;
+2. Utilizando apenas **4 variáveis selecionadas**:
 
-| Campo | Valor |
-|---|---|
-| Fonte | <!-- PREENCHER: URL --> |
-| Linhas × colunas | <!-- PREENCHER --> |
-| Período / versão | <!-- PREENCHER --> |
-| Licença de uso | <!-- PREENCHER --> |
+   - `alcohol`
+   - `volatile acidity`
+   - `sulphates`
+   - `citric acid`
 
-Descrição das variáveis:
+A seleção das quatro variáveis foi baseada nos resultados observados durante a análise exploratória. :contentReference[oaicite:8]{index=8}
 
-| Variável | Tipo | Descrição |
-|---|---|---|
-| | | |
+Para otimização dos modelos foi utilizado **GridSearchCV** com validação cruzada de 5 folds.
 
----
-
-## 4. Como reproduzir
-
-```bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
-
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-
-pip install -r requirements.txt
-jupyter notebook
-```
-
-Baixe o dataset e coloque o arquivo bruto em `data/raw/` (os dados **não** são versionados —
-veja `data/README.md`).
-
-Depois execute os notebooks nesta ordem:
-
-| # | Notebook | O que faz |
-|---|---|---|
-| 1 | `notebooks/01_eda.ipynb` | Análise exploratória |
-| 2 | `notebooks/02_preprocessamento.ipynb` | Limpeza, escala e feature engineering |
-| 3 | `notebooks/03_modelagem.ipynb` | Treino e comparação dos modelos |
-| 4 | `notebooks/04_avaliacao.ipynb` | Métricas, importância de variáveis e conclusões |
-
-**Semente fixa:** `RANDOM_STATE = 42`, declarada na primeira célula de cada notebook.
-Rodar os notebooks na ordem acima, a partir de um ambiente limpo, deve reproduzir
-exatamente os números da seção 5.
+No SVM foi utilizado o **kernel RBF**, avaliando diferentes combinações dos hiperparâmetros `C` e `gamma`. :contentReference[oaicite:9]{index=9}
 
 ---
 
-## 5. Resultados
+## 📈 Resultados
 
-| Modelo | Acurácia | Precisão | Recall | F1 | AUC-ROC |
-|---|---|---|---|---|---|
-| <!-- PREENCHER --> | | | | | |
-| | | | | | |
+| Modelo | Variáveis | Acurácia | AUC | F1-Score |
+|---|---:|---:|---:|---:|
+| KNN | 11 | 78,6% | 0,857 | — |
+| **KNN** | **4** | **80,3%** | **0,873** | **0,825** |
+| SVM | 11 | 78,6% | 0,842 | — |
+| SVM | 4 | 77,7% | 0,838 | — |
 
-**Modelo escolhido:** <!-- PREENCHER --> — <!-- PREENCHER: por quê. -->
+O melhor resultado obtido foi o **KNN utilizando quatro variáveis**, alcançando:
 
-**Métricas priorizadas:** <!-- PREENCHER: justifique a escolha considerando o
-     desbalanceamento de classes e o custo de cada tipo de erro no contexto do negócio. -->
+- **Acurácia:** 80,3%
+- **AUC:** 0,873
+- **F1-Score:** 0,825
 
----
+O KNN com quatro variáveis também apresentou melhora em relação à utilização das 11 variáveis, passando de 78,6% para 80,3% de acurácia e de 0,857 para 0,873 de AUC. :contentReference[oaicite:10]{index=10}
 
-## 6. Principais conclusões
+Já no SVM, a redução para quatro variáveis apresentou uma pequena perda de desempenho: a acurácia passou de 78,6% para 77,7% e o AUC de 0,842 para 0,838. :contentReference[oaicite:11]{index=11}
 
-<!-- PREENCHER: 3 a 5 conclusões em linguagem de negócio.
-     Inclua quais variáveis mais influenciam o resultado e o que isso significa
-     na prática para quem vai usar o modelo. -->
+### ⚠️ Interpretação dos resultados
 
-1.
-2.
-3.
+Apesar de o KNN com quatro variáveis ter apresentado o melhor resultado, a diferença entre os modelos foi relativamente pequena.
 
-### Limitações e próximos passos
+A diferença entre a maior e a menor acurácia foi de apenas **2,6 pontos percentuais**, considerando o conjunto de teste com 229 amostras.
 
-<!-- PREENCHER -->
-
----
-
-## 7. Estrutura do repositório
-
-```
-.
-├── data/          dados brutos (raw) e tratados (processed) — não versionados
-├── notebooks/     análise em ordem numerada
-└── docs/          apresentação executiva
-```
-
-Detalhes e convenções em [`ESTRUTURA.md`](ESTRUTURA.md).
-Antes de enviar, percorra o [`CHECKLIST.md`](CHECKLIST.md).
+Além disso, o experimento utilizou uma única divisão entre treinamento e teste. Dessa forma, os resultados não devem ser interpretados como evidência definitiva de superioridade de um algoritmo sobre o outro. :contentReference[oaicite:12]{index=12}
 
 ---
 
-## 8. Tecnologias
+## 🌳 Importância das Variáveis
 
-<!-- PREENCHER: Python 3.11, pandas, scikit-learn, ... -->
+Como análise complementar, foi utilizado um modelo **Random Forest** para avaliar a importância relativa das 11 características físico-químicas.
+
+O Random Forest indicou como principais variáveis:
+
+1. `alcohol`
+2. `sulphates`
+3. `total sulfur dioxide`
+4. `volatile acidity`
+
+O teor alcoólico apresentou a maior importância, com valor próximo de 0,20. :contentReference[oaicite:13]{index=13}
+
+A análise também reforçou os resultados observados na matriz de correlação, principalmente em relação ao `alcohol` e à `volatile acidity`.
+
+É importante destacar que a importância de uma variável no modelo representa sua contribuição para a previsão e **não significa necessariamente uma relação de causa e efeito** com a qualidade do vinho. :contentReference[oaicite:14]{index=14}
+
+---
+
+## 🍇 Possíveis Aplicações
+
+Os resultados indicam que modelos de Machine Learning podem ser utilizados como uma ferramenta complementar no processo de análise da qualidade dos vinhos.
+
+Uma aplicação possível seria utilizar as características físico-químicas disponíveis para identificar amostras com maior ou menor probabilidade de pertencer à categoria de boa qualidade.
+
+Entretanto, o modelo não deve substituir a avaliação de especialistas. Os resultados representam associações encontradas nos dados e capacidade de classificação, não permitindo afirmar que alterações isoladas em determinada característica necessariamente aumentarão a qualidade do vinho. :contentReference[oaicite:15]{index=15}
+
+---
+
+## 🏆 Modelo Selecionado
+
+Considerando os resultados obtidos neste experimento, o modelo selecionado foi o:
+
+### KNN com 4 variáveis
+
+**Variáveis utilizadas:**
+
+- `alcohol`
+- `volatile acidity`
+- `sulphates`
+- `citric acid`
+
+**Resultados:**
+
+> **Acurácia: 80,3% | AUC: 0,873 | F1-Score: 0,825**
+
+A redução das variáveis não prejudicou o desempenho do KNN. Pelo contrário, apresentou uma pequena melhora nas métricas em relação ao modelo utilizando as 11 variáveis. :contentReference[oaicite:16]{index=16}
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+  - KNeighborsClassifier
+  - SVC
+  - RandomForestClassifier
+  - GridSearchCV
+  - métricas de avaliação
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+
+---
+
+## 📁 Estrutura do Repositório
+
+```text
+wine-quality-classification/
+│
+├── data/
+│   └── WineQT.csv
+│
+├── notebooks/
+│   └── análise e modelagem
+│
+├── results/
+│   └── gráficos e resultados
+│
+├── TechChallenge_2.docx
+├── requirements.txt
+└── README.md
