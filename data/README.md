@@ -215,7 +215,7 @@ wine-quality-classification/
 │
 ├── data/
 │   └── WineQT.csv
-│
+│   └── README.md
 ├── notebooks/
 │   └── análise_modelagem.ipynb
 │
@@ -224,5 +224,5 @@ wine-quality-classification/
 │   └── métricas/
 │
 ├── TechChallenge_2.docx
-├── requirements.txt
-└── README.md
+└── requirements.txt
+ 
