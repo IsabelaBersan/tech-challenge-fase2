@@ -1,5 +1,3 @@
-# data/
-
 # 🍷 Wine Quality Classification
 
 ## Classificação da Qualidade de Vinhos com Machine Learning
